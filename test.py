@@ -49,7 +49,7 @@ class LinkedList:
             return current.data
 
 
-if __name__ == '__main__':
+def main():
     linked_list = LinkedList()
     n = 3
 
@@ -61,3 +61,7 @@ if __name__ == '__main__':
         print("\nn <=1, you get null")
     else:
         print(f'\nElement [2*n/3]-1: {linked_list.get_elem()}')
+
+
+if __name__ == '__main__':
+    main()
