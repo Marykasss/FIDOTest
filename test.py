@@ -54,7 +54,7 @@ def main(n):
     linked_list = LinkedList()
 
     for i in range(n):
-        linked_list.append(i)
+        linked_list.append('a'*i)
 
     linked_list.print_list()
     print(f'\nElement [2*n/3]-1: {linked_list.get_elem(n)}')
