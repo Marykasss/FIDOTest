@@ -1,3 +1,5 @@
+import sys
+
 class Node:
     def __init__(self, data):
         self.data = data
@@ -20,7 +22,7 @@ class LinkedList:
             current.next = new_node
 
     def print_list(self):
-        print(f'Your linked list for n = {n}:')
+        print(f'Your linked list:')
         current = self.head
         llist = []
         while current:
@@ -30,13 +32,7 @@ class LinkedList:
         llist = " -> ".join(llist)
         print(llist)
 
-    def get_elem(self):
-        n = 0
-        current = self.head
-        while current:
-            n += 1
-            current = current.next
-
+    def get_elem(self, n):
         if n <= 1:
             return None
         else:
@@ -45,23 +41,24 @@ class LinkedList:
             for i in range(pos):
                 if current is not None:
                     current = current.next
+                else:
+                    break
 
-            return current.data
+            if current:
+                return current.data
+            else:
+                return None
 
 
-def main():
+def main(n):
     linked_list = LinkedList()
-    n = 3
 
     for i in range(n):
         linked_list.append(i)
 
     linked_list.print_list()
-    if linked_list.get_elem() is None:
-        print("\nn <=1, you get null")
-    else:
-        print(f'\nElement [2*n/3]-1: {linked_list.get_elem()}')
+    print(f'\nElement [2*n/3]-1: {linked_list.get_elem(n)}')
 
 
 if __name__ == '__main__':
-    main()
+    main(int(sys.argv[1]))
